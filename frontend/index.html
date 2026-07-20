@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>מערכת ניתוח שוק — זהב · כסף · ביטקוין</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Market System">
+    <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Heebo:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="vendor/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+    <header>
+        <h1>📊 מערכת ניתוח שוק</h1>
+        <div class="tabs" id="symbol-tabs"></div>
+    </header>
+
+    <main>
+        <div>
+            <div class="card">
+                <div class="price-line">
+                    <span id="current-price" class="price">—</span>
+                    <span id="current-symbol-label" style="color:var(--text-dim)"></span>
+                </div>
+                <h2>📈 גרף — ריבוי ממדים (טווחי זמן)</h2>
+                <div class="tf-selector" id="tf-selector"></div>
+                <div id="main-chart"></div>
+                <div class="mini-grid" id="mini-grid"></div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 איזורים חשובים (תמיכה/התנגדות)</h2>
+                <div class="zones-list" id="zones-list"><div class="empty-state">טוען...</div></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="card">
+                <h2>🧠 השקפה מוסדית (Smart Money)</h2>
+                <div id="institutional-panel"><div class="empty-state">טוען...</div></div>
+            </div>
+
+            <div class="card">
+                <h2>📅 עונתיות</h2>
+                <div class="season-tabs" id="season-tabs"></div>
+                <div class="season-bars" id="season-bars"><div class="empty-state">טוען...</div></div>
+            </div>
+
+            <div class="card">
+                <h2>📰 פיד חדשות חי</h2>
+                <div class="news-feed" id="news-feed"><div class="empty-state">ממתין לחדשות...</div></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

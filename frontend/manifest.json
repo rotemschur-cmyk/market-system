@@ -1,0 +1,18 @@
+{
+  "name": "מערכת ניתוח שוק — זהב · כסף · ביטקוין",
+  "short_name": "Market System",
+  "description": "ויזואליזציה רב-ממדית, עונתיות, איזורים חשובים, חדשות חיות והשקפה מוסדית לזהב/כסף/ביטקוין",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a1a",
+  "theme_color": "#0a0a1a",
+  "dir": "rtl",
+  "lang": "he",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

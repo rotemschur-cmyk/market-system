@@ -1,0 +1,25 @@
+//@version=5
+indicator("Market System Webhook Feed", overlay=true)
+
+// 1. Add this indicator to the chart (Pine Editor -> Add to Chart).
+// 2. Set "Internal symbol key" below to match the chart you're on
+//    (XAUUSD / XAGUSD / BTCUSD).
+// 3. Set "Webhook Secret" to the same value as TRADINGVIEW_WEBHOOK_SECRET
+//    in backend/.env.
+// 4. Create an Alert on this indicator: Condition = "Market System Webhook
+//    Feed" -> "Any alert() function call", trigger "Once Per Bar Close",
+//    Notifications tab -> Webhook URL = https://your-domain/webhook/tradingview
+// 5. Repeat per symbol AND per timeframe you want live (e.g. open the 1H
+//    chart and create one alert, then the 4H chart and create another).
+//
+// NOTE: TradingView requires a paid plan (Essential or higher) to use
+// webhook URLs in alerts — this does not work on the free plan.
+
+secret = input.string("choose-a-long-random-string", "Webhook Secret")
+symbolKey = input.string("XAUUSD", "Internal symbol key", options=["XAUUSD", "XAGUSD", "BTCUSD"])
+
+if barstate.isconfirmed
+    msg = '{"secret":"' + secret + '","symbol":"' + symbolKey + '","timeframe":"' + timeframe.period +
+         '","time":' + str.tostring(time) + ',"open":' + str.tostring(open) + ',"high":' + str.tostring(high) +
+         ',"low":' + str.tostring(low) + ',"close":' + str.tostring(close) + ',"volume":' + str.tostring(volume) + '}'
+    alert(msg, alert.freq_once_per_bar_close)

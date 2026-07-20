@@ -1,0 +1,8 @@
+# Only used for the VPS + docker-compose path (see README.md). If you have a
+# domain pointed at this server, replace ":80" below with your domain (e.g.
+# "market.example.com") and Caddy will automatically obtain and renew a free
+# HTTPS certificate — no other changes needed. The backend now serves the
+# frontend itself, so this just reverse-proxies everything to it.
+:80 {
+    reverse_proxy backend:8000
+}
