@@ -68,10 +68,12 @@ main {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
+    align-items: stretch;
 }
 
 @media (max-width: 960px) {
     main { grid-template-columns: 1fr; }
+    .info-card { min-height: 480px; }
 }
 
 .card {
@@ -79,8 +81,47 @@ main {
     border: 1px solid var(--card-border);
     border-radius: 14px;
     padding: 18px;
-    margin-bottom: 20px;
 }
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.info-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.info-tab-btn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-dim);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: .88rem;
+    cursor: pointer;
+    min-height: 36px;
+}
+
+.info-tab-btn.active {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+    color: #fff;
+    border-color: transparent;
+}
+
+.info-panel-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.info-panel { display: none; }
+.info-panel.active { display: block; }
 
 .card h2 {
     font-size: 1.05rem;
@@ -204,7 +245,7 @@ main {
 .inst-updated { font-size: .72rem; color: var(--text-dim); margin-top: 10px; }
 
 /* News feed */
-.news-feed { display: flex; flex-direction: column; gap: 10px; max-height: 480px; overflow-y: auto; }
+.news-feed { display: flex; flex-direction: column; gap: 10px; }
 .news-item {
     padding: 10px 12px;
     border-radius: 10px;
@@ -237,6 +278,12 @@ main {
     header h1 { font-size: 1.25rem; letter-spacing: 1px; }
     main { padding: 14px 10px 40px; gap: 14px; }
     .card { padding: 14px; }
-    #main-chart { height: 300px; }
+    #main-chart { height: 260px; }
     .price-line .price { font-size: 1.3rem; }
+    /* Multi-timeframe mini charts are a "see everything at once" power-user
+       view — not worth the vertical space on a phone. Switch timeframe via
+       the buttons above the chart instead. */
+    .mini-grid { display: none; }
+    .info-card { min-height: 0; }
+    .info-panel-body { max-height: 50vh; }
 }

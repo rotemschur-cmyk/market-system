@@ -25,39 +25,41 @@
     </header>
 
     <main>
-        <div>
-            <div class="card">
-                <div class="price-line">
-                    <span id="current-price" class="price">—</span>
-                    <span id="current-symbol-label" style="color:var(--text-dim)"></span>
-                </div>
-                <h2>📈 גרף — ריבוי ממדים (טווחי זמן)</h2>
-                <div class="tf-selector" id="tf-selector"></div>
-                <div id="main-chart"></div>
-                <div class="mini-grid" id="mini-grid"></div>
+        <div class="card chart-card">
+            <div class="price-line">
+                <span id="current-price" class="price">—</span>
+                <span id="current-symbol-label" style="color:var(--text-dim)"></span>
             </div>
-
-            <div class="card">
-                <h2>🎯 איזורים חשובים (תמיכה/התנגדות)</h2>
-                <div class="zones-list" id="zones-list"><div class="empty-state">טוען...</div></div>
-            </div>
+            <div class="tf-selector" id="tf-selector"></div>
+            <div id="main-chart"></div>
+            <div class="mini-grid" id="mini-grid"></div>
         </div>
 
-        <div>
-            <div class="card">
-                <h2>🧠 השקפה מוסדית (Smart Money)</h2>
-                <div id="institutional-panel"><div class="empty-state">טוען...</div></div>
+        <div class="card info-card">
+            <div class="info-tabs" id="info-tabs">
+                <button class="info-tab-btn active" data-panel="zones">🎯 איזורים</button>
+                <button class="info-tab-btn" data-panel="institutional">🧠 מוסדי</button>
+                <button class="info-tab-btn" data-panel="seasonality">📅 עונתיות</button>
+                <button class="info-tab-btn" data-panel="news">📰 חדשות</button>
             </div>
 
-            <div class="card">
-                <h2>📅 עונתיות</h2>
-                <div class="season-tabs" id="season-tabs"></div>
-                <div class="season-bars" id="season-bars"><div class="empty-state">טוען...</div></div>
-            </div>
+            <div class="info-panel-body">
+                <div id="panel-zones" class="info-panel active">
+                    <div class="zones-list" id="zones-list"><div class="empty-state">טוען...</div></div>
+                </div>
 
-            <div class="card">
-                <h2>📰 פיד חדשות חי</h2>
-                <div class="news-feed" id="news-feed"><div class="empty-state">ממתין לחדשות...</div></div>
+                <div id="panel-institutional" class="info-panel">
+                    <div id="institutional-panel"><div class="empty-state">טוען...</div></div>
+                </div>
+
+                <div id="panel-seasonality" class="info-panel">
+                    <div class="season-tabs" id="season-tabs"></div>
+                    <div class="season-bars" id="season-bars"><div class="empty-state">טוען...</div></div>
+                </div>
+
+                <div id="panel-news" class="info-panel">
+                    <div class="news-feed" id="news-feed"><div class="empty-state">ממתין לחדשות...</div></div>
+                </div>
             </div>
         </div>
     </main>

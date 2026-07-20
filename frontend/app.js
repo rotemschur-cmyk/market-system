@@ -296,6 +296,19 @@ function connectNewsStream() {
     es.onerror = () => { /* browser auto-reconnects EventSource */ };
 }
 
+// ---- Info panel tabs (single-screen layout: one panel visible at a time) ---
+
+function initInfoTabs() {
+    document.querySelectorAll('.info-tab-btn').forEach((btn) => {
+        btn.onclick = () => {
+            document.querySelectorAll('.info-tab-btn').forEach((b) => b.classList.toggle('active', b === btn));
+            document.querySelectorAll('.info-panel').forEach((p) => {
+                p.classList.toggle('active', p.id === `panel-${btn.dataset.panel}`);
+            });
+        };
+    });
+}
+
 // ---- Orchestration ----------------------------------------------------------
 
 async function refreshAll() {
@@ -314,6 +327,7 @@ function registerServiceWorker() {
 
 async function main() {
     registerServiceWorker();
+    initInfoTabs();
     await initSymbols();
     initTfSelector();
     initSeasonTabs();
